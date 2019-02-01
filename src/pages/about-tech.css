@@ -1,0 +1,8 @@
+.techDesc {
+  background-color: lightgray;
+  padding: 1vh 4vw;
+  border: 1px solid black;
+  color: var(--textColorReverse);
+  width: 90%;
+  margin: 0 auto;
+}
