@@ -17,7 +17,7 @@ function Menubar(props) {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/secret">The Vault</Link>
+          <Link to="/portfolio">The Vault</Link>
         </li>
       </ul>
     </div>

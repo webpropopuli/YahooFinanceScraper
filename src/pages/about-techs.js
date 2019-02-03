@@ -20,7 +20,7 @@ module.exports = [
   },
 
   {
-    name: "this page",
+    name: "this-page",
     title: "This page",
     text:
       "## About this page \n All these techs live in an object array in a separate .js file. By mapping over them this page is created based on the content of that file, so I'm not touching code (yeah, I know) to add new items."

@@ -10,10 +10,7 @@ function AboutTech({ match }) {
   const { techName } = match.params;
 
   const tech = techs.find(x => x.name === techName);
-  if (tech === undefined)
-    //handle unknowns
-    return <></>;
-  else {
+  if (tech !== undefined) {
     // print the data from techs[]
     return (
       <div className="techDesc">

@@ -1,12 +1,15 @@
 const Auth = {
+  currUser: "",
   isAuthenticated: false,
   authenticate(cb) {
     this.isAuthenticated = true;
-    setTimeout(cb, 100);
+    this.currUser = "David";
+    setTimeout(cb, 100); //bogus
   },
   signout(cb) {
     this.isAuthenticated = false;
-    setTimeout(cb, 100);
+    this.currUser = "";
+    setTimeout(cb, 100); //bogus
   }
 };
 
