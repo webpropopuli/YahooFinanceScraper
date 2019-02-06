@@ -5,6 +5,7 @@ import Auth from "../utils/auth";
 /*
 This is the destination page any time we try to reach a <RouteProtected> page. We get redirected here from the page component.
 */
+
 class Login extends React.Component {
   state = {
     redirectToReferrer: false
@@ -37,15 +38,13 @@ const LogoutButton = withRouter(({ history }) =>
     <></>
   ) : (
     <div>
-      <p>
-        Hey {Auth.currUser}
-        <button
-          onClick={() => {
-            Auth.signout(() => history.push("/"));
-          }}>
-          Sign out
-        </button>
-      </p>{" "}
+      <p>Hey {Auth.currUser}</p>
+      <button
+        onClick={() => {
+          Auth.signout(() => history.push("/"));
+        }}>
+        Sign out
+      </button>
     </div>
   )
 );

@@ -9,7 +9,7 @@ const Auth = {
   signout(cb) {
     this.isAuthenticated = false;
     this.currUser = "";
-    setTimeout(cb, 100); //bogus
+    setTimeout(cb, 1000); //bogus
   }
 };
 
