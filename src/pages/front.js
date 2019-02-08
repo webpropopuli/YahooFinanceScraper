@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Redirect } from "react-router-dom";
 //BrowserRouter allows React Router to pass the app’s routing information down to any child component it needs (via context)
 
 import About from "./about";
-import Home from "./home";
 import Portfolio from "./portfolio";
 import Menubar from "../components/menubar";
 import { Login, LogoutButton } from "../utils/login";
 
 import Auth from "../utils/auth";
+import Home from "./home";
 
 const RouteProtected = ({ component: Component, ...rest }) => {
   return (

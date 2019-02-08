@@ -19,17 +19,12 @@ app.get("/api/sweeper", (req, res) => {
   const dbInfo = { db: "scraper1", coll: "snapshots" };
   sweeper({ db: "scraper1", coll: "snapshots" })
     .then(data => {
-      console.log(data); //# THE PAYLOAD!
-
+      //console.log(data); //# THE PAYLOAD!
       res.json(data);
-      //res.send({ sweeper: "Hello From Express" });
     })
     .catch(e => {
       next(e);
     });
-  // const data = sweeper(() => {
-  //   res.send({ sweeper: "Hello From Express" });
-  // });
 });
 
 app.post("/api/world", (req, res) => {
