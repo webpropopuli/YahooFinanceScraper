@@ -1,5 +1,6 @@
 import React from "react";
 import SweepBtn from "../components/sweeper";
+import SnapshotBtn from "../components/sweeper";
 
 function Home() {
   return (

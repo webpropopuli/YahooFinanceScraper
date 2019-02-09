@@ -1,10 +1,10 @@
 const { clientConnect, clientClose } = require("./dbMongo");
 
 //# get dbconnect string from env
-const res = require("dotenv").config({ path: "../.env" });
-if (res.error) throw res.error;
+// const res = require("dotenv").config({ path: "../.env" });
+// if (res.error) throw res.error;
 
-let dbUrl = process.env.DB_CONNECT;
+const dbUrl = process.env.DB_CONNECT;
 
 module.exports = {
   //# sweep data from all snapshots */

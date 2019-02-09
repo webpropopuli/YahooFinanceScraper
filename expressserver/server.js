@@ -5,6 +5,10 @@ const port = process.env.PORT || 5001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+require("./utils/loadEnv"); // Get DB and Yahoo creds
+//const yahooUsr = process.env.YAHOO_USR;
+//const yahooPwd = process.env.YAHOO_PWD;
+
 const { sweeper } = require("./db/sweeper");
 
 app.get("/api", (req, res) => {
@@ -19,10 +23,11 @@ app.get("/api/sweeper", (req, res) => {
   const dbInfo = { db: "scraper1", coll: "snapshots" };
   sweeper({ db: "scraper1", coll: "snapshots" })
     .then(data => {
-      //console.log(data); //# THE PAYLOAD!
+      console.log(data); //# THE PAYLOAD!
       res.json(data);
     })
     .catch(e => {
+      console.log(e);
       next(e);
     });
 });
