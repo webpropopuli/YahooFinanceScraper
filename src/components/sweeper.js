@@ -19,7 +19,7 @@ export default class SweepBtn extends Component {
         </>
       );
     else return <Sweeper />;
-    //TBD when Sweeper done I need to change the state???
+    //TBD when Sweeper done I need to change the state??? Lift Props up here
   }
 }
 
