@@ -1,18 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const css = {
-  backgroundColor: "#ddd"
-};
+import "./menubar.css";
 
 function Menubar(props) {
   return (
-    <div className="navbar" style={css}>
+    <nav className="navbar">
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-
         <li>
           <Link to="/about">About</Link>
         </li>
@@ -20,7 +13,7 @@ function Menubar(props) {
           <Link to="/portfolio">The Vault</Link>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 

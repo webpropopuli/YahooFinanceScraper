@@ -1,3 +1,4 @@
+/* REMEMBER to add 2 spaces for a newline in the text field. Elle aime tant ca */
 module.exports = [
   {
     name: "react",
@@ -9,13 +10,13 @@ module.exports = [
     name: "mongo",
     title: "Mongo",
     text:
-      "## MongoDB \n Our database is Mongo. Simple, plays well with json and it's the 'M' in 'MERN' so not really a choice here. This db is hosted at mLabs (until they get fully assimilated into [Mongo Compass](https://www.mongodb.com/products/compass))"
+      "## MongoDB \n Our database is Mongo. Simple, plays well with json and it's the 'M' in 'MERN' so not really a choice here.  \nThis db is hosted at ~~mLabs (until they get fully assimilated into [Mongo Atlas](https://www.mongodb.com/cloud/atlas)~~). Hey! We're hosted at Mongo Atlas now. Thanks mLabs."
   },
   {
     name: "express",
     title: "Express",
     text:
-      "## Express \n Handling Portfolio loading and sweeping. Our API makes DB calls from the server. \n\n `api/sweeper` and `api/loadportfolio` are the  two main routes. \n\n Also added `api/test` to verify that the server is running at startup time. Called from React `<ServerCheck>`"
+      "## Express \n Handling Portfolio loading and sweeping. Our API makes DB calls from the server. \n\n `api/sweeper` and `api/loadportfolio` are the  two main routes. \n\nAlso added `api/test` to verify that the server is running at startup time. Called from React `<ServerCheck>`"
   },
   {
     name: "react-router",
@@ -27,7 +28,7 @@ module.exports = [
     name: "markdown",
     title: "Markdown",
     text:
-      "## Markdown \n Using [markdown-to-jsx](https://probablyup.com/markdown-to-jsx/) I can get cooler descriptions without having to write tons of HTML. \n\n Still not perfect as I can't embed newlines, and half of MD won't work like this, but adding a pair of newlines `(\\n\\n)` fixes a lot, so we're getting there."
+      "## Markdown \n Using [markdown-to-jsx](https://probablyup.com/markdown-to-jsx/) I can get cooler descriptions without having to write tons of HTML. \n\n Newlines are a bit strange (double-space and `\\n`), and half of MD won't work like this, but  we're getting there."
   },
   {
     name: "this-page",

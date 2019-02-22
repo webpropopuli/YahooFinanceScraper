@@ -8,7 +8,7 @@ import "./about-tech.css";
 const techs = require("./about-techs.js");
 
 function AboutTech({ match }) {
-  const { techName } = match.params;
+  const { techName } = match.params; //
 
   const tech = techs.find(x => x.name === techName);
   if (tech !== undefined) {
@@ -28,17 +28,8 @@ function About() {
       <p>This started as my Financial Scraper project for Career Devs Academy.</p>
 
       <h4>Stacks and Techs used:</h4>
-      <div
-        className="techsContainer"
-        style={{
-          display: "flex",
-          height: "40vh"
-        }}>
-        <div
-          className="LEFT"
-          style={{
-            flexBasis: "15%"
-          }}>
+      <div className="techsContainer" style={{ display: "flex", height: "40vh" }}>
+        <div className="LEFT" style={{ flexBasis: "15%" }}>
           <ul>
             {techs.map((x, ndx) => (
               <li key={`${x.id}_${ndx}`}>
@@ -47,12 +38,7 @@ function About() {
             ))}
           </ul>
         </div>
-        <div
-          className="RIGHT"
-          style={{
-            flexBasis: "85%",
-            paddingLeft: "20px"
-          }}>
+        <div className="RIGHT" style={{ flexBasis: "85%", paddingLeft: "20px" }}>
           <Route path="/about/:techName" component={AboutTech} />
           {/* :techName is a route param; passes to the <Component>*/}
         </div>
