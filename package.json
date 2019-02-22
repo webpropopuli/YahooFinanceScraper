@@ -1,7 +1,8 @@
 {
   "name": "finance-scraper-fullstack-client",
-  "version": "2.1.0",
-  "private": true,
+  "version": "2.1.2",
+  "description": "A React Financial Scraper client",
+  "private": false,
   "dependencies": {
     "auth0-js": "^9.10.0",
     "auth0-lock": "^11.14.0",
@@ -31,5 +32,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5001"
 }

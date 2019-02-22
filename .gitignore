@@ -1,9 +1,5 @@
 # dependencies
 /node_modules
-/expressserver/node_modules
-
-# testing
-/coverage
 
 # production
 /build
@@ -15,4 +11,3 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
