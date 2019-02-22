@@ -1,5 +1,5 @@
 {
-  "name": "finance-scraper-fullstack",
+  "name": "finance-scraper-fullstack-client",
   "version": "2.1.0",
   "private": true,
   "dependencies": {
