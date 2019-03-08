@@ -7,46 +7,72 @@ This is the destination page any time we try to reach a <RouteProtected> page. W
 */
 
 class Login extends React.Component {
-  state = {
-    redirectToReferrer: false
-  };
-  login = () => {
-    Auth.authenticate(() => {
-      this.setState(() => ({ redirectToReferrer: true }));
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirectToReferrer: false,
+      loggedIn: false
+    };
+  }
+
   render() {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
 
-    const { redirectToReferrer } = this.state;
+    //const { redirectToReferrer } = this.state;
 
-    if (redirectToReferrer === true) {
+    if (this.state.redirectToReferrer === true) {
       return <Redirect to={from} />;
-    }
-    // else
-    return (
-      <div>
-        <p>Log in to view this page ({from.pathname})</p>
-        <button onClick={this.login}>Log in NOW</button>
-      </div>
-    );
+    } else
+      return (
+        <div>
+          <p>Log in to view this page ({from.pathname})</p>
+        </div>
+      );
   }
 }
 
-const LogoutButton = withRouter(({ history }) =>
-  !Auth.isAuthenticated ? (
-    <></>
+/************
+ * One button for both will toggle login status.
+ * Pages like '/' do not have props.location but '/portfolio' does
+ */
+const LoginoutButton = withRouter(props =>
+  !Auth.authOk() ? (
+    <div>
+      <button
+        onClick={function() {
+          Auth.login(ok => {
+            console.log("Auth.login()");
+            if (ok) {
+              if (undefined !== props.location.state) {
+                props.history.push(props.location.state.from.pathname);
+                console.log("login:", props.location.state);
+              }
+            } else {
+              props.history.push("/");
+              console.log("ERR: Auth.login()");
+            }
+            props.setLogin(Auth.authOk());
+          });
+        }}>
+        Login
+      </button>
+    </div>
   ) : (
     <div>
-      <p>Hey {Auth.currUser}</p>
       <button
+        style={{ display: "inline" }}
         onClick={() => {
-          Auth.signout(() => history.push("/"));
+          Auth.logout(x => {
+            console.log("logout:", x);
+            props.history.push("/");
+            props.setLogin(Auth.authOk());
+          });
         }}>
-        Sign out
+        Logout
       </button>
+      <p style={{ display: "inline", marginLeft: "10px" }}>Hey {Auth.currUser}</p>
     </div>
   )
 );
 
-export { Login, LogoutButton };
+export { Login, LoginoutButton };

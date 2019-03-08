@@ -1,20 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { LoginoutButton } from "../utils/login";
 import "./menubar.css";
 
-function Menubar(props) {
-  return (
-    <nav className="navbar">
-      <ul>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/portfolio">The Vault</Link>
-        </li>
-      </ul>
-    </nav>
-  );
-}
+export default class Menubar extends Component {
+  constructor(props) {
+    super(props);
 
-export default Menubar;
+    this.state = { loggedIn: false };
+  }
+
+  toggleState = st => {
+    this.setState({ loggedIn: st });
+  };
+
+  render() {
+    return (
+      <nav className="navbar">
+        <ul>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/portfolio">The Vault</Link>
+          </li>
+        </ul>
+        <LoginoutButton setLogin={this.toggleState} />
+      </nav>
+    );
+  }
+}

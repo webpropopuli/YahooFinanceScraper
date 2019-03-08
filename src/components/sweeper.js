@@ -37,7 +37,8 @@ class Sweeper extends Component {
 
   // Collect snapshots from TBLsbapshots
   getSweepData = () => {
-    fetch("/api/sweeper")
+    //fetch("/api/sweeper")
+    fetch("http://localhost:5001/api/sweeper")
       .then(res => res.json())
       .then(data => this.setState({ data, showData: true }));
   };

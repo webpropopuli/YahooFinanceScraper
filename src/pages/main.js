@@ -5,17 +5,21 @@ import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import About from "./about";
 import Portfolio from "./portfolio";
 import Menubar from "../components/menubar";
-import { Login, LogoutButton } from "../utils/login";
+import { Login } from "../utils/login";
 
 import Auth from "../utils/auth";
 import Home from "./home";
 
+/***************
+ * Wrap protected routes in here. If Auth then render the route normally,
+ * else redirect to login page, passing in from location
+ */
 const RouteProtected = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props =>
-        Auth.isAuthenticated === true ? (
+        Auth.authOk() ? (
           <Component user={Auth.currUser} {...props} />
         ) : (
           <Redirect
@@ -36,7 +40,6 @@ function FrontPageAndLogin() {
     <BrowserRouter>
       <>
         <Menubar />
-        <LogoutButton />
 
         <Route exact path="/" render={Home} />
         <Route path="/about" component={About} />

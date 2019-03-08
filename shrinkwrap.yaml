@@ -1,6 +1,7 @@
 dependencies:
   auth0-js: 9.10.0
   auth0-lock: 11.14.0
+  axios: 0.18.0
   express-jwt-authz: 1.0.0
   markdown-to-jsx: 6.9.1
   now: 14.0.0
@@ -2111,6 +2112,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
+  /axios/0.18.0:
+    dependencies:
+      follow-redirects: 1.7.0
+      is-buffer: 1.1.6
+    dev: false
+    resolution:
+      integrity: sha1-MtU+SFHv3AoRmTts0AB4nXDAUQI=
   /axobject-query/2.0.2:
     dependencies:
       ast-types-flow: 0.0.7
@@ -11079,6 +11087,7 @@ shrinkwrapVersion: 3
 specifiers:
   auth0-js: ^9.10.0
   auth0-lock: ^11.14.0
+  axios: ^0.18.0
   express-jwt-authz: ^1.0.0
   markdown-to-jsx: ^6.9.1
   now: ^14.0.0

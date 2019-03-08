@@ -1,16 +1,27 @@
-const Auth = {
-  currUser: "",
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    this.currUser = "David";
-    setTimeout(cb, 100); //bogus
-  },
-  signout(cb) {
+class Auth {
+  constructor() {
     this.isAuthenticated = false;
     this.currUser = "";
-    setTimeout(cb, 1000); //bogus
   }
-};
 
-export default Auth;
+  authOk() {
+    return this.isAuthenticated;
+  }
+
+  login(cb) {
+    //TBD get user creds
+    this.isAuthenticated = true;
+    this.currUser = "David";
+
+    cb(this.authOk());
+  }
+
+  logout(cb) {
+    this.isAuthenticated = false;
+    this.currUser = "";
+
+    cb(this.authOk());
+  }
+}
+
+export default new Auth();

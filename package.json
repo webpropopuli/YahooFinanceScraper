@@ -6,6 +6,7 @@
   "dependencies": {
     "auth0-js": "^9.10.0",
     "auth0-lock": "^11.14.0",
+    "axios": "^0.18.0",
     "express-jwt-authz": "^1.0.0",
     "markdown-to-jsx": "^6.9.1",
     "now": "^14.0.0",
@@ -31,6 +32,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "proxy": "http://localhost:5001"
+  ]
 }
