@@ -62,8 +62,8 @@ const LoginoutButton = withRouter(props =>
       <button
         style={{ display: "inline" }}
         onClick={() => {
+          console.log("Auth.logout()");
           Auth.logout(x => {
-            console.log("logout:", x);
             props.history.push("/");
             props.setLogin(Auth.authOk());
           });
