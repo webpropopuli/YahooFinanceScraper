@@ -1,14 +1,19 @@
 class Auth {
-  constructor() {
-    this.isAuthenticated = false;
-    this.currUser = "";
+  constructor(props) {
+    this.state = {
+      data: "",
+      showData: false,
+      isAuthenticated: false,
+      currUser: ""
+    };
   }
 
   authOk() {
-    return this.isAuthenticated;
+    return this.state.isAuthenticated;
   }
 
-  login(cb) {
+  //# LOGIN
+  login = cb => {
     //TBD get user creds then on success....
 
     fetch("http://localhost:5001/api/login", {
@@ -21,24 +26,52 @@ class Auth {
         "Content-Type": "application/json"
       }
     })
-      .then(res => {
-        res.json();
-        console.log("RESULT!!!!!****", res.json);
+      .then(res => res.json())
+      .then(data => {
+        console.log("DATA", data.userName);
+        this.state = {
+          isAuthenticated: data.userValid,
+          currUser: data.userName
+        };
+        cb(data);
       })
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
 
-    this.isAuthenticated = true;
-    this.currUser = "David";
+      .catch(err => console.log(err));
+  };
+
+  //# LOGOUT
+  logout(cb) {
+    this.state = {
+      isAuthenticated: false,
+      currUser: ""
+    };
 
     cb(this.authOk());
   }
 
-  logout(cb) {
-    this.isAuthenticated = false;
-    this.currUser = "";
+  //# REGISTER( user {email, pwd, name} )
+  register(userInfo) {
+    //TBD get user creds then on success....
+    const { email, password, name } = userInfo;
+    fetch("http://localhost:5001/api/register", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+        name
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        // tbd check valid state. Could get error for existing user...
+        if (data.userAdded) console.log("CLI: user registered");
+        else console.log("CLI: failed ser registration");
+      })
 
-    cb(this.authOk());
+      .catch(err => console.log(err));
   }
 }
 
