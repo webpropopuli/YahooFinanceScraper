@@ -11,7 +11,7 @@
     "markdown-to-jsx": "^6.9.1",
     "now": "^14.0.0",
     "react": "^16.7.0",
-    "react-dev-utils": "^7.0.3",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.7.0",
     "react-google-login": "^5.0.0",
     "react-router-dom": "^4.3.1",
